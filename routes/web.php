@@ -16,3 +16,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/active-substances', function () {
+    return view('substance');
+});
+
+Route::get('/manufacturers', function () {
+    return view('manufacturer');
+});
+
+Route::get('/pharmacological-agents', function () {
+    return view('pharmacological');
+});

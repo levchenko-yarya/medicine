@@ -3,15 +3,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Medicine</title>
+    <title>Substance</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="wrapper">
-<h1>MEDICINE.com</h1>
-
-<a href="/active-substances">действующее вещество</a> <br/>
-<a href="/manufacturers">производитель</a> <br/>
-<a href="/pharmacological-agents">лекарственное средство</a>
-
+<a href="/">назад</a>
+<h1>Действующее вещество</h1>
+<a href="">добавить новое действующее вещество</a>
 </body>
 </html>
