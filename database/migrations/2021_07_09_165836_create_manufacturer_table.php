@@ -15,7 +15,7 @@ class CreateManufacturerTable extends Migration
     {
         Schema::create('manufacturers', function (Blueprint $table) {
             $table->Increments('id')->index();
-            $table->string('name');
+            $table->string('companyName');
             $table->string('url');
         });
     }

@@ -15,7 +15,7 @@ class CreatePharmacologicalAgentsTable extends Migration
     {
         Schema::create('pharmacological_agents', function (Blueprint $table) {
             $table->Increments('id')->index();
-            $table->string('name');
+            $table->string('productName');
             $table->integer('active_substance_id')->nullable()->unsigned();
             $table->foreign('active_substance_id', 'pharmacological_agents_active_substances_id_active_substance_id')
                 ->references('id')
