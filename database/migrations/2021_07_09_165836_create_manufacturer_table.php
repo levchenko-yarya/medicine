@@ -17,6 +17,7 @@ class CreateManufacturerTable extends Migration
             $table->Increments('id')->index();
             $table->string('companyName');
             $table->string('url');
+            $table->timestamps();
         });
     }
 

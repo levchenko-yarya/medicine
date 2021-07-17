@@ -16,6 +16,7 @@ class CreateActiveSubstancesTable extends Migration
         Schema::create('active_substances', function (Blueprint $table) {
             $table->Increments('id')->index();
             $table->string('productName');
+            $table->timestamps();
         });
     }
 

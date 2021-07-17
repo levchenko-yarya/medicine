@@ -29,6 +29,7 @@ class CreatePharmacologicalAgentsTable extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
             $table->integer('price');
+            $table->timestamps();
         });
     }
 

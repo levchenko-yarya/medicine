@@ -10,11 +10,23 @@ class PharmacologicalAgent extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name',
+        'productName',
         'active_substance_id',
         'manufacturer_id',
         'price'
     ];
+    protected $link = 'show-agent';
+    protected $edit = 'edit-agent';
+
+    public function link()
+    {
+        return route($this->link, $this);
+    }
+
+    public function edit()
+    {
+        return route($this->edit, $this);
+    }
 
     public function active_substance()
     {
