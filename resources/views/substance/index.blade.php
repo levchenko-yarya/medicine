@@ -1,3 +1,4 @@
+{{--
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -35,3 +36,39 @@
 
 </body>
 </html>
+--}}
+
+
+
+@extends('app')
+
+@section('title', 'главная')
+
+@section('content')
+
+    <h1>Действующее вещество</h1>
+    <a href="{{route('create-substance')}}">добавить новое действующее вещество</a>
+
+    <table border="1">
+        <tr>
+            <th>id</th>
+            <th>productName</th>
+            <th colspan="2">действия</th>
+        </tr>
+        @foreach($substances as $substance)
+            <tr>
+                <th>{{$substance->id}}</th>
+                <th><a href="{{$substance->link()}}">{{$substance->productName}}</a></th>
+                <th><a href="{{$substance->edit()}}">изменить</a></th>
+                <th>
+                    <form method="post" action="{{ route('delete-substance', $substance) }}">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}" required>
+                        <input type="submit" value="Удалить">
+                    </form>
+                </th>
+            </tr>
+        @endforeach
+    </table>
+
+@endsection

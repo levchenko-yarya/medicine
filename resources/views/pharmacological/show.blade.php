@@ -1,3 +1,4 @@
+{{--
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -20,3 +21,20 @@
 
 </body>
 </html>
+--}}
+
+
+@extends('app')
+
+@section('title', 'главная')
+
+@section('content')
+
+    <h3>описание лекарства</h3>
+    <p>id = {{$agent->id}}</p>
+    <p>название: {{$agent->productName}}</p>
+    <p>active_substance_id: {{$agent->active_substance->productName}}</p>
+    <p>manufacturer_id: {{$agent->manufacturer->companyName}}</p>
+    <p>price = {{$agent->price}}</p>
+
+@endsection

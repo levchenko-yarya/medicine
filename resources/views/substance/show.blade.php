@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{--<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
@@ -16,4 +16,16 @@
 <p>id = {{$substance->id}}</p>
 
 </body>
-</html>
+</html>--}}
+
+@extends('app')
+
+@section('title', 'главная')
+
+@section('content')
+
+    <h3>описание вещества</h3>
+    <p>название: {{$substance->productName}}</p>
+    <p>id = {{$substance->id}}</p>
+
+@endsection

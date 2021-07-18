@@ -1,17 +1,17 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Medicine</title>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-</head>
-<body class="wrapper">
-<h1>MEDICINE.com</h1>
+@extends('app')
 
-<a href="/active-substances">действующее вещество</a> <br/>
-<a href="/manufacturers">производитель</a> <br/>
-<a href="/pharmacological-agents">лекарственное средство</a>
+@section('title', 'главная')
 
-</body>
-</html>
+@section('content')
+
+    <ul class="nav justify-content-center">
+        <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="/"><h1>MEDICINE.com</h1></a>
+        </li>
+    </ul>
+
+    <p>
+        этот каталог лекарств написан на Laravel в качестве тестового задания.
+    </p>
+
+@endsection

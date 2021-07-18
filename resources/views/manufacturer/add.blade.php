@@ -1,3 +1,4 @@
+{{--
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -20,3 +21,22 @@
 
 </body>
 </html>
+--}}
+
+
+
+@extends('app')
+
+@section('title', 'главная')
+
+@section('content')
+
+    <form method="post" action="{{route('post-manufacturer')}}">
+        <h3>Добавление производителя</h3>
+        <input type="text" name="companyName" placeholder="компания">
+        <input type="text" name="url" placeholder="ссылка на сайт">
+        <input type="hidden" name="_token" value="{{ csrf_token() }}" required>
+        <input type="submit" value="добавить">
+    </form>
+
+@endsection

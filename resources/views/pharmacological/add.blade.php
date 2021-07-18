@@ -1,3 +1,4 @@
+{{--
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -34,3 +35,36 @@
 
 </body>
 </html>
+
+--}}
+
+
+@extends('app')
+
+@section('title', 'главная')
+
+@section('content')
+
+    <form method="post" action="{{route('post-agent')}}">
+        <h3>Добавление лекарства</h3>
+        <input type="text" name="productName" placeholder="лекарство">
+
+        <select name="active_substance_id">
+            @foreach($substances as $substance)
+                <option value="{{$substance->id}}">{{$substance->productName}}</option>
+            @endforeach
+        </select>{{$substance->productName}}
+
+        <select name="manufacturer_id">
+            @foreach($manufacturers as $manufacturer)
+                <option value="{{$manufacturer->id}}">{{$manufacturer->companyName}}</option>
+            @endforeach
+        </select>
+
+        <input type="number" name="price" placeholder="цена">
+
+        <input type="hidden" name="_token" value="{{ csrf_token() }}" required>
+        <input type="submit" value="добавить">
+    </form>
+
+@endsection

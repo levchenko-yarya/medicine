@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{--<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
@@ -17,4 +17,18 @@
 <p>url = {{$manufacturer->url}}</p>
 
 </body>
-</html>
+</html>--}}
+
+
+@extends('app')
+
+@section('title', 'главная')
+
+@section('content')
+
+    <h3>описание компании</h3>
+    <p>id = {{$manufacturer->id}}</p>
+    <p>название: {{$manufacturer->companyName}}</p>
+    <p>url = {{$manufacturer->url}}</p>
+
+@endsection

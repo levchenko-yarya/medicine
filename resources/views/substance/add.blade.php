@@ -1,3 +1,4 @@
+{{--
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -19,3 +20,21 @@
 
 </body>
 </html>
+
+--}}
+
+
+@extends('app')
+
+@section('title', 'главная')
+
+@section('content')
+
+    <form method="post" action="{{route('post-substance')}}">
+        <h3>Добавление действующего вещества</h3>
+        <input type="text" name="productName" placeholder="вещество">
+        <input type="hidden" name="_token" value="{{ csrf_token() }}" required>
+        <input type="submit" value="добавить">
+    </form>
+
+@endsection
