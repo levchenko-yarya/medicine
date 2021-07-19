@@ -1,40 +1,18 @@
-{{--
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>вещество</title>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-</head>
-<body class="wrapper">
-<a href="/">назад</a>
-
-<h3>описание лекарства</h3>
-
-<p>id = {{$agent->id}}</p>
-<p>название: {{$agent->productName}}</p>
-<p>active_substance_id: {{$agent->active_substance->productName}}</p>
-<p>manufacturer_id: {{$agent->manufacturer->companyName}}</p>
-<p>price = {{$agent->price}}</p>
-
-</body>
-</html>
---}}
-
-
 @extends('app')
 
 @section('title', 'главная')
 
 @section('content')
 
-    <h3>описание лекарства</h3>
-    <p>id = {{$agent->id}}</p>
-    <p>название: {{$agent->productName}}</p>
-    <p>active_substance_id: {{$agent->active_substance->productName}}</p>
-    <p>manufacturer_id: {{$agent->manufacturer->companyName}}</p>
-    <p>price = {{$agent->price}}</p>
+    <div class="card">
+        <h5 class="card-header">Описание лекарства</h5>
+        <div class="card-body">
+            <h5 class="card-title">Название: {{$agent->productName}}</h5>
+            <p class="card-text">id = {{$agent->id}}</p>
+            <p class="card-text">Активное вещество: {{$agent->active_substance->productName}}</p>
+            <p class="card-text">Производитель: {{$agent->manufacturer->companyName}}</p>
+            <p class="card-text">Цена = {{$agent->price}}</p>
+        </div>
+    </div>
 
 @endsection

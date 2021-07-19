@@ -4,27 +4,31 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield('title')</title>
-    {{--<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">--}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 </head>
-<body class="wrapper">
+<body>
 
-<div>
+<div class="container" style="border: 1px solid blue">
     <ul class="nav justify-content-center">
         <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/active-substances">действующее вещество</a>
+            <a class="nav-link" aria-current="page" href="/"><h1>medicine.com</h1></a>
+        </li>
+    </ul>
+    <ul class="nav justify-content-center">
+        <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="{{route('index-substance')}}">действующее вещество</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/manufacturers">производитель</a>
+            <a class="nav-link" aria-current="page" href="{{route('index-manufacturer')}}">производитель</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/pharmacological-agents">лекарственное средство</a>
+            <a class="nav-link" aria-current="page" href="{{route('index-agent')}}">лекарственное средство</a>
         </li>
     </ul>
 </div>
 
-<div class="container" style="border: 1px solid red">
+<div class="container text-center" style="border: 1px solid red">
     @yield('content')
 </div>
 
