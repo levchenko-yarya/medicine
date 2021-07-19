@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', 'главная')
+@section('title', 'лекарство')
 
 @section('content')
 
