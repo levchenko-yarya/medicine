@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Manufacturer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class ManufacturerController extends Controller
 {
@@ -25,6 +26,7 @@ class ManufacturerController extends Controller
         $manufacturer->companyName = $request->input('companyName');
         $manufacturer->url = $request->input('url');
         $manufacturer->save();
+        Log::info('add manufacturer '.$manufacturer);
         return redirect()->route('index-manufacturer');
     }
 
@@ -46,6 +48,7 @@ class ManufacturerController extends Controller
     {
         $manufacturer->fill($request->all());
         $manufacturer->save();
+        Log::info('update manufacturer '.$manufacturer);
         return redirect()->route('index-manufacturer');
     }
 

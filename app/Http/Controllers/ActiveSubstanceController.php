@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ActiveSubstance;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class ActiveSubstanceController extends Controller
 {
@@ -24,6 +25,7 @@ class ActiveSubstanceController extends Controller
         $substance = new ActiveSubstance();
         $substance->productName = $request->input('productName');
         $substance->save();
+        Log::info('add active_substance '.$substance);
         return redirect()->route('index-substance');
     }
 
@@ -45,6 +47,7 @@ class ActiveSubstanceController extends Controller
     {
         $activeSubstance->fill($request->all());
         $activeSubstance->save();
+        Log::info('update active_substance '.$activeSubstance);
         return redirect()->route('index-substance');
     }
 

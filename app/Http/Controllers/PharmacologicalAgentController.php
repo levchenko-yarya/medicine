@@ -6,6 +6,7 @@ use App\Models\ActiveSubstance;
 use App\Models\Manufacturer;
 use App\Models\PharmacologicalAgent;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class PharmacologicalAgentController extends Controller
 {
@@ -32,6 +33,7 @@ class PharmacologicalAgentController extends Controller
         $agent->manufacturer_id = $request->input('manufacturer_id');
         $agent->price = $request->input('price');
         $agent->save();
+        Log::info('add pharmacological_agent '.$agent);
         return redirect()->route('index-agent');
     }
 
@@ -55,6 +57,7 @@ class PharmacologicalAgentController extends Controller
     {
         $agent->fill($request->all());
         $agent->save();
+        Log::info('update pharmacological_agent '.$agent);
         return redirect()->route('index-agent');
     }
 
