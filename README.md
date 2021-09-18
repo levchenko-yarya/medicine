@@ -22,3 +22,13 @@
 GET-запрос `/agents` - выводит весь список лекарственных средств
 
 GET-запрос `/agents/{id}` - выводит информацию указанного лекарства
+
+
+
+### документация по настройке docker
+
+https://laravel.demiart.ru/setup-laravel-in-docker-container/
+
+`docker-compose build` - сборка docker контейнеров
+
+`docker-compose up -d` - запуск docker
