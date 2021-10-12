@@ -8,7 +8,7 @@ class AgentPost extends FormRequest
 {
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     public function rules()
@@ -23,6 +23,7 @@ class AgentPost extends FormRequest
     {
         return [
             'productName.required' => 'Необходимо указать название лекарства',
+            'productName.unique' => 'Такое лекарство уже существует',
             'productName.min' => 'Необходимо написать больше 5 символов',
             'productName.max' => 'Вы превысили заданный размер (больше 255 символов)',
             'price.min' => 'Необходимо указать больше 1',

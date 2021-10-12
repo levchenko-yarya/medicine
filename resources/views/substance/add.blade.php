@@ -10,6 +10,11 @@
             <label for="product" class="form-label">Название действующего вещества</label>
             <input type="text" class="form-control" id="product" name="productName" placeholder="вещество">
         </div>
+
+        @error('productName')
+        <div class="alert alert-danger">{{$message}}</div>
+        @enderror
+
         <input type="hidden" name="_token" value="{{ csrf_token() }}" required>
         <button type="submit" class="btn btn-primary">Добавить</button>
     </form>

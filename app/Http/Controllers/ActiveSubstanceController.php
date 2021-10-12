@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SubstancePost;
 use App\Models\ActiveSubstance;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -20,10 +21,9 @@ class ActiveSubstanceController extends Controller
         return view('substance/add');
     }
 
-    public function store(Request $request)
+    public function store(SubstancePost $request)
     {
-        $substance = new ActiveSubstance();
-        $substance->productName = $request->input('productName');
+        $substance = new ActiveSubstance($request->validated());
         $substance->save();
         Log::info('add active_substance '.$substance);
         return redirect()->route('index-substance');

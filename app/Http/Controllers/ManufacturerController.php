@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ManufacturerPost;
 use App\Models\Manufacturer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -20,11 +21,9 @@ class ManufacturerController extends Controller
         return view('manufacturer/add');
     }
 
-    public function store(Request $request)
+    public function store(ManufacturerPost $request)
     {
-        $manufacturer = new Manufacturer();
-        $manufacturer->companyName = $request->input('companyName');
-        $manufacturer->url = $request->input('url');
+        $manufacturer = new Manufacturer($request->validated());
         $manufacturer->save();
         Log::info('add manufacturer '.$manufacturer);
         return redirect()->route('index-manufacturer');

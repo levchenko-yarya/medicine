@@ -8,13 +8,13 @@ class SubstancePost extends FormRequest
 {
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     public function rules()
     {
         return [
-            'productName' => 'required|min:5|max:255'
+            'productName' => 'required|unique:active_substances|min:5|max:255'
         ];
     }
 
@@ -22,6 +22,7 @@ class SubstancePost extends FormRequest
     {
         return [
             'productName.required' => 'Необходимо указать название активного вещества',
+            'productName.unique' => 'Такое активное вещество уже есть',
             'productName.min' => 'Необходимо написать больше 5 символов',
             'productName.max' => 'Вы превысили заданный размер (больше 255 символов)',
         ];

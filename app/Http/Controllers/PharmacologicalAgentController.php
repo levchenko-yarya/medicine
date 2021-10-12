@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AgentPost;
 use App\Models\ActiveSubstance;
 use App\Models\Manufacturer;
 use App\Models\PharmacologicalAgent;
@@ -25,13 +26,9 @@ class PharmacologicalAgentController extends Controller
         ]);
     }
 
-    public function store(Request $request)
+    public function store(AgentPost $request)
     {
-        $agent = new PharmacologicalAgent();
-        $agent->productName = $request->input('productName');
-        $agent->active_substance_id = $request->input('active_substance_id');
-        $agent->manufacturer_id = $request->input('manufacturer_id');
-        $agent->price = $request->input('price');
+        $agent = new PharmacologicalAgent($request->validated());
         $agent->save();
         Log::info('add pharmacological_agent '.$agent);
         return redirect()->route('index-agent');

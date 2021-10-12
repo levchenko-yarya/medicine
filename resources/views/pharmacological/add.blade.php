@@ -8,8 +8,14 @@
         <h3>Добавление лекарства</h3>
         <div class="mb-3">
             <label for="product" class="form-label">Название лекарства</label>
-            <input type="text" class="form-control" name="productName" id="product" aria-describedby="emailHelp" placeholder="название">
+            <input type="text" class="form-control" name="productName" id="product" aria-describedby="emailHelp"
+                   placeholder="название">
         </div>
+
+        @error('productName')
+        <div class="alert alert-danger">{{$message}}</div>
+        @enderror
+
         <div class="mb-3">
             <label for="substance" class="form-label">Активные вещества</label>
             <select class="form-select" id="substance" name="active_substance_id">
@@ -18,6 +24,7 @@
                 @endforeach
             </select>
         </div>
+
         <div class="mb-3">
             <label for="manufacturer" class="form-label">Производитель</label>
             <select class="form-select" id="manufacturer" name="manufacturer_id">
@@ -26,10 +33,16 @@
                 @endforeach
             </select>
         </div>
+
         <div class="mb-3">
             <label for="price" class="form-label">Цена лекарства</label>
             <input type="number" class="form-control" id="price" name="price" placeholder="цена">
         </div>
+
+        @error('price')
+        <div class="alert alert-danger">{{$message}}</div>
+        @enderror
+
         <input type="hidden" name="_token" value="{{ csrf_token() }}" required>
         <button type="submit" class="btn btn-primary">Добавить</button>
     </form>

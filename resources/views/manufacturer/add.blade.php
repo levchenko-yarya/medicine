@@ -10,10 +10,19 @@
             <label for="company" class="form-label">Название компании</label>
             <input type="text" class="form-control" id="company" name="companyName" placeholder="компания">
         </div>
+
+        @error('companyName')
+        <div class="alert alert-danger">{{$message}}</div>
+        @enderror
+
         <div class="mb-3">
             <label for="url" class="form-label">Ссылка на сайт</label>
             <input type="text" class="form-control" id="url" name="url" placeholder="url">
         </div>
+
+        @error('url')
+        <div class="alert alert-danger">{{$message}}</div>
+        @enderror
 
         <input type="hidden" name="_token" value="{{ csrf_token() }}" required>
         <button type="submit" class="btn btn-primary">Добавить</button>

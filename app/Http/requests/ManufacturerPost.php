@@ -8,14 +8,14 @@ class ManufacturerPost extends FormRequest
 {
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     public function rules()
     {
         return [
-            'companyName' => 'required|min:5|max:255',
-            'url' => 'min:5|max:255'
+            'companyName' => 'required|unique:manufacturers|min:5|max:255',
+            'url' => 'required|min:5|max:255'
         ];
     }
 
@@ -23,8 +23,10 @@ class ManufacturerPost extends FormRequest
     {
         return [
             'companyName.required' => 'Необходимо указать название компании',
+            'companyName.unique' => 'Такая компания уже есть',
             'companyName.min' => 'Необходимо написать больше 5 символов',
             'companyName.max' => 'Вы превысили заданный размер (больше 255 символов)',
+            'url.required' => 'Необходимо указать ссылку на компанию',
             'url.min' => 'Необходимо написать больше 5 символов',
             'url.max' => 'Вы превысили заданный размер (больше 255 символов)',
         ];
